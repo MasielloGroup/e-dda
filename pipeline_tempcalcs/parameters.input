@@ -1,0 +1,31 @@
+# Input paramaters for the thermal pipeline 
+
+### ddscat.par ###
+# input frequency, the one for bonding differs from that for anti-bonding
+in_freq: 1.473
+# dielectric function (make sure the .txt file exists and you have access to)
+dc_dir: /gscratch/chem/clairew4/dielectrics/au_Conor_0K.txt
+# do near field calculation or not, 0 (not do) or (E-field) or 2 (E/B-field)
+nearfield: 2
+# plane wave or Gaussian beam (0 or 1)
+gaussian: 1
+# ambient medium refractive index 
+nambient: 1.473
+# incident polarization (y or z or circ), k along x axis
+inc_pol: y
+# dipole spacing
+dip_space: 2
+
+### var.par ###
+# number of different mateirals in system
+num_k: 1
+# thermal conductivity of background 
+k_out: 0.3 
+# thermal conductivity of target
+k_in: 314 
+# thermal conductivity of substrate
+k_sub: 5.9
+# refractive index of background
+n_m: 1.94
+# incident power for pump & probe, assuming both pump & probe spot sizes are near-diffraction limited, units of Watt 
+P_0: 0.0002
