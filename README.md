@@ -10,6 +10,9 @@ The following code is a modified verison of Draine's Discrete Dipole Approximati
 * See the folder "useful_scripts" in order to run spectra and spectrum images on the cluster.
 
 ### Useful Scripts 
+* `make_spectrum_image` 
+This will launch many scattering calculations to form a 2-D spectrum image by raster scanning the electron beam.
+
 
 ## Citations
 If you use e-DDA to compute EELS, we request you cite: https://doi.org/10.1021/nn302980u.
