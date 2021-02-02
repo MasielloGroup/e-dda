@@ -10,7 +10,7 @@ The following code is a modified verison of Draine's Discrete Dipole Approximati
 * See the folder "useful_scripts" in order to run spectra and spectrum images on the cluster.
 
 ### Useful Scripts 
-* Make spectrum images 
+#### Make spectrum images 
 This folder will launch many scattering calculations to form a 2-D spectrum image by raster scanning the electron beam.
 1. Make the conventional `shape.dat` file.
 2. Update all parameters in `ddscat.par`, however do not change line 9, the position of the electron beam. 
