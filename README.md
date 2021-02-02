@@ -3,6 +3,7 @@
 The following code is a modified verison of Draine's Discrete Dipole Approximation (DDA) code version 7.1. We have modified the code to to allow for an electron beam excitation source. The following code computes the electron energy loss spectroscopy (EELS) and angle-resolved cathodoluminescence (CL) for both aloof and internal geometries. 
 
 ## Instructions
+# General 
 * Delete all executables within source_code by typeing "make clean; make veryclean"
 * Compile the fortran code my typing "make all"
 * Running this code works nearly the same as DDA 7.1, however the input file, "ddscat.par" now has two new lines indicating the electron beam position and velocity
