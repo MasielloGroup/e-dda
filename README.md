@@ -12,11 +12,12 @@ The following code is a modified verison of Draine's Discrete Dipole Approximati
 ### Useful Scripts 
 #### Make spectrum images 
 This folder will launch many scattering calculations to form a 2-D spectrum image by raster scanning the electron beam.
-* Make the conventional `shape.dat` file.
-* Update all parameters in `ddscat.par`, however do not change line 9, the position of the electron beam. 
-* The computation is organized to group all y slices (z = constant, y = varying) under one job listing. The `launch.slurm` file defines the y bounds and step size in units of lattice spacing. Do not change line 21, this gets updated in `launch_full.sh`.
-* Lastly, update the z bounds and step size in `launch_full.sh`.
-* To run the many calculations, type `bash launch_full.sh`.
+* Replace shape.dat with your shape file. You can use the given shape.f90 file as a template to make your shape if you'd like.
+* Update ddscat.par as you would for a normal e-dda calculation, except DO NOT change the electron beam position. It should always read: " 0.0 0.0 0.0 " exactly.
+* Launch an interactive node ( type in command line: `srun -p build --time=2:00:00 --mem=100G --pty /bin/bash` )
+* Define the extend and raster step size in `create_folders.sh`. Then bash this script.
+* Type in the command line:` module load anaconda3_5.3; python makelaunchfiles.py`
+* Submit all the jobs by typing in command line: bash submit_jobs.sh
 
 ## Citations
 If you use e-DDA to compute EELS, we request you cite: https://doi.org/10.1021/nn302980u.
