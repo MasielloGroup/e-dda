@@ -14,6 +14,7 @@ for valy in range(ybegin,yend,ss):
     for valz in range(zbegin,zend,ss): 
         filename = str('y')+str(valy) + str('_z') + str(valz) + str('/gammatable')
         if os.path.isfile(filename) == True and os.stat(filename).st_size != 690:
+
             data = np.loadtxt(filename,skiprows=14)
             wave_um = data[0]
             Gamma = data[2]

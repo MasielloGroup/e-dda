@@ -13,7 +13,7 @@
 'FROM_FILE' = CSHAPE*9 shape directive
 no SHPAR parameters needed
 1         = NCOMP = number of dielectric materials
-'/gscratch/chem/masiello_group/dielectric/auJC.tab' = file with refractive index for the chosen material 
+'/usr/lusers/clairew4/dielectrics/auJC.tab' = file with refractive index for the chosen material 
 '**** Error Tolerance ****'
 1.00e-5 = TOL = MAX ALLOWED (NORM OF |G>=AC|E>-ACA|X>)/(NORM OF AC|E>)
 '**** Integration limiter for PBC calculations ****'
@@ -21,9 +21,9 @@ no SHPAR parameters needed
 '**** Angular resolution for calculation of <cos>, etc. ****'
 0.5     = ETASCA (number of angles is proportional to [(3+x)/ETASCA]^2 )
 '**** Wavelengths (micron) ****'
-0.649 0.649 1 'INV' = wavelengths (first,last,how many,how=LIN,INV,LOG)
+0.693 0.693 1 'INV' = wavelengths (first,last,how many,how=LIN,INV,LOG)
 '**** Effective Radii (micron) **** '
-0.0897 0.0897 1 'LIN' = aeff (first,last,how many,how=LIN,INV,LOG)
+0.0565 0.0565 1 'LIN' = aeff (first,last,how many,how=LIN,INV,LOG)
 '**** Define Incident Polarizations ****'
 (0,0) (1.,0.) (0.,0.) = Polarization state e01 (k along x axis)
 1 = IORTH  (=1 to do only pol. state e01; =2 to also do orth. pol. state)
