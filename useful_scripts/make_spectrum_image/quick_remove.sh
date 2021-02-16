@@ -7,4 +7,5 @@ rm slurm*.out
 rm *~
 rm *\#
 rm -r y*_z*
-rm launch_temp_*
+rm launch*
+rm run_these_points.txt

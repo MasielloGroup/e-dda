@@ -1,8 +1,8 @@
 #!/bin/bash
 module load anaconda3_5.3
 
-python -c 'import find_points; find_points.find_raster(extent=10, raster_ss=10)'
-input="spec_image_points.txt"
+python -c 'import find_points; find_points.find_raster(extent=20, raster_ss=10)'
+input="run_these_points.txt"
 
 IFS='\t' # space is set as delimiter 
 

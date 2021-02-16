@@ -35,12 +35,12 @@ def find_raster(extent, raster_ss):
 			spec_points[count,:] =  spec_grid[line,:]
 			count=count+1
 	spec_points_trmed = spec_points[:count,:]
-	print(str('Number of files being created: ') + str(len(spec_points_trmed)))
-	file = open(str('spec_image_points.txt'),'w')
+	print(str('Number of folders created: ') + str(len(spec_points_trmed)))
+	file = open(str('run_these_points.txt'),'w')
 
 	count = 0
 	for i in range(0, len(spec_points_trmed)):
 		file.write(str(int(spec_points_trmed[i,0])) + '\t' + str(int(spec_points_trmed[i,1])) + '\n')
 		count = count+1
-	file.close()	
-
+	file.close()
+#        return specimg_ymin, specimg_ymax, specimg_zmin, specimg_zmax

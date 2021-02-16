@@ -2,7 +2,7 @@ import numpy as np
 import os.path
 import string
 
-folders = np.loadtxt('spec_image_points.txt')
+folders = np.loadtxt('run_these_points.txt')
 batch_size = 20
 for i in range(0,int(len(folders)/batch_size)+1):
     yvals = folders[batch_size*i:batch_size*(i+1),0].astype(int)
@@ -29,7 +29,7 @@ for i in range(0,int(len(folders)/batch_size)+1):
     writefile.write(str('for ((i=0;i<${#yarray[@]};++i)); do') + '\n')
     writefile.write('\t' + str('y=${yarray[i]}; z=${zarray[i]}') + '\n')
     writefile.write('\t' + str('cd y${y}_z${z}')+'\n')
-    writefile.write('\t' + str('/gscratch/chem/masiello_group/srcEELS_fixUnit_fixCL_exc_abs_diff/ddscat'+'\n'))
+    writefile.write('\t' + str('/gscratch/chem/masiello_group/e-dda/source_code/ddscat'+'\n'))
     writefile.write('\t' + str('cd ../')+'\n')
     writefile.write(str('done')+'\n')
     writefile.close()

@@ -21,9 +21,9 @@ program shapemaker
 
     ! This loops over our grid
     ! first particle dimensions and location
-    x_thick = 52/DS
-    y_length  = 172/DS
-    z_width = 92/DS
+    x_thick = 4/DS
+    y_length  = 4/DS
+    z_width = 4/DS
     ! location defined by its centroid. define below vars such that (y_offset, z_offset) as the centroid
     ! calculate parameters
     A = x_thick/(DS)+1

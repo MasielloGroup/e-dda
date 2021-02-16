@@ -1,0 +1,46 @@
+' ========== Parameter file for v7.1.0 ==================='
+'**** Preliminaries ****'
+'NOTORQ' = CMTORQ*6 (DOTORQ, NOTORQ) -- either do or skip torque calculations
+'PBCGS2' = CMDSOL*6 (PBCGS2, PBCGST, PETRKP) -- select solution method
+'GPFAFT' = CMETHD*6 (GPFAFT, FFTWJ, CONVEX)
+'LATTDR' = CALPHA*6 (GKDLDR, LATTDR, SCLDR)
+'NOTBIN' = CBINFLAG (ALLBIN, ORIBIN, NOTBIN)
+'**** Initial Memory Allocation ****'
+48 250 340 = dimensioning allowance for target generation
+0.0 -21 -1 = x, y, z position of e-beam center
+60.0 = initial KE of electron
+'**** Target Geometry and Composition ****'
+'FROM_FILE' = CSHAPE*9 shape directive
+no SHPAR parameters needed
+1         = NCOMP = number of dielectric materials
+'/usr/lusers/clairew4/dielectrics/auJC.tab' = file with refractive index for the chosen material 
+'**** Error Tolerance ****'
+1.00e-5 = TOL = MAX ALLOWED (NORM OF |G>=AC|E>-ACA|X>)/(NORM OF AC|E>)
+'**** Integration limiter for PBC calculations ****'
+1.00e-2 = GAMMA (1e-2 is normal, 3e-3 for greater accuracy)
+'**** Angular resolution for calculation of <cos>, etc. ****'
+0.5     = ETASCA (number of angles is proportional to [(3+x)/ETASCA]^2 )
+'**** Wavelengths (micron) ****'
+0.693 0.693 1 'INV' = wavelengths (first,last,how many,how=LIN,INV,LOG)
+'**** Effective Radii (micron) **** '
+0.0565 0.0565 1 'LIN' = aeff (first,last,how many,how=LIN,INV,LOG)
+'**** Define Incident Polarizations ****'
+(0,0) (1.,0.) (0.,0.) = Polarization state e01 (k along x axis)
+1 = IORTH  (=1 to do only pol. state e01; =2 to also do orth. pol. state)
+'**** Specify which output files to write ****'
+0 = IWRKSC (=0 to suppress, =1 to write ".sca" file for each target orient.
+1 = IWRPOL (=0 to suppress, =1 to write ".pol" file for each (BETA,THETA)
+'**** Specify Target Rotations ****'
+0.    0.   1  = BETAMI, BETAMX, NBETA  (beta=rotation around a1)
+0.    0.   1  = THETMI, THETMX, NTHETA (theta=angle between a1 and k)
+0.    0.   1  = PHIMIN, PHIMAX, NPHI (phi=rotation angle of a1 around k)
+'**** Specify first IWAV, IRAD, IORI (normally 0 0 0) ****'
+0   0   0    = first IWAV, first IRAD, first IORI (0 0 0 to begin fresh)
+'**** Select Elements of S_ij Matrix to Print ****'
+6       = NSMELTS = number of elements of S_ij to print (not more than 9)
+11 12 21 22 31 41       = indices ij of elements to print
+'**** Specify Scattered Directions ****'
+'TFRAME' = CMDFRM (LFRAME, TFRAME for Lab Frame or Target Frame)
+1 = NPLANES = number of scattering planes
+0.  0. 180. 1 = phi, theta_min, theta_max (deg) for plane A
+50. 0. 180. 1 = phi, theta_min, theta_max (deg) for plane B

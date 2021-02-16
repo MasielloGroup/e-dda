@@ -15,9 +15,14 @@ This folder will launch many scattering calculations to form a 2-D spectrum imag
 * Replace shape.dat with your shape file. You can use the given shape.f90 file as a template to make your shape if you'd like.
 * Update ddscat.par as you would for a normal e-dda calculation, except DO NOT change the electron beam position. It should always read: " 0.0 0.0 0.0 " exactly.
 * Launch an interactive node ( type in command line: `srun -p build --time=2:00:00 --mem=100G --pty /bin/bash` )
-* Define the extend and raster step size in `create_folders.sh`. Then bash this script.
-* Type in the command line:` module load anaconda3_5.3; python makelaunchfiles.py`
-* Submit all the jobs by typing in command line: bash submit_jobs.sh
+* Define the extent of the window and the raster step size in `create_folders.sh`. These are set at the end of Line 4. `extent` extends the raster window beyond the shape points in each direction in the given number of dipole spacings. `raster_ss` sets the y and z raster step size. 
+* Once both numbers are updated, run `bash creat_folders.sh`.
+* This will create the listed number of folders; one folder for each e-beam raster point calculation.
+* Next, make the launch scripts to batch launch all the points. To do so, type in the command line:` module load anaconda3_5.3; python makelaunchfiles.py` 
+* This will create launch files where each job submits 20 EEL calculations. Feel free to change the batch size (Line 6) if the calculation is too big to complete within the set 4 hour time window.
+* Submit all the jobs by typing in command line: `bash submit_jobs.sh`
+* Lastly, kill your build node job.
+* Once all the points have finished, run `python collect_EEL.py`. This will create `spectrum_image.txt`.
 
 ## Citations
 If you use e-DDA to compute EELS, we request you cite: https://doi.org/10.1021/nn302980u.
